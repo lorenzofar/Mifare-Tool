@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>3f9bac5b-34b3-4fbb-bce6-fa3626799c4b</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Mifare.Shared.Uwp</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CardReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classic\FactoryMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Classic\MiFareWinRTCardReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PcSc\PcscUtils.cs" />
+  </ItemGroup>
+</Project>
