@@ -15,16 +15,12 @@ namespace Mifare_Tool
 
         public override Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
+            NavigationService.Navigate(typeof(MainPage));
             return Task.CompletedTask;
         }
 
         public override Task OnInitializeAsync(IActivatedEventArgs args)
         {
-            if ((Window.Current.Content as MainPage) == null)
-            {
-                var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include);
-                Window.Current.Content = new MainPage();
-            }
             return Task.CompletedTask; 
         }
     }
