@@ -19,7 +19,14 @@ namespace Mifare_Tool.Utils
                 Communicator.SendPopup("file_null_title", "file_null_body");
                 return;
             }
-            await file.CopyAsync(ApplicationData.Current.LocalFolder);
+            try
+            {
+                await file.CopyAsync(ApplicationData.Current.LocalFolder, file.Name, NameCollisionOption.FailIfExists);
+            }
+            catch
+            {
+                Communicator.SendPopup("file_importErr_title", "file_duplicateErr_body");
+            }
         }
 
         public static async Task<IReadOnlyList<StorageFile>> ListFiles()
