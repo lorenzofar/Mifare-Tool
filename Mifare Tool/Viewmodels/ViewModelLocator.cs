@@ -18,5 +18,16 @@ namespace Mifare_Tool.Viewmodels
                 return _main;
             }
         }
+
+        private static FilesViewModel _files;
+        public static FilesViewModel files
+        {
+            get
+            {
+                if (_files == null)
+                    _files = new FilesViewModel();
+                return _files;
+            }
+        }
     }
 }

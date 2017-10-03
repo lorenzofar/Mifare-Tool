@@ -95,7 +95,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\FileDateConverter.cs" />
+    <Compile Include="Templates\FileList.xaml.cs">
+      <DependentUpon>FileList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\CardManager.cs" />
+    <Compile Include="Viewmodels\FilesViewModel.cs" />
+    <Compile Include="Views\FilesPage.xaml.cs">
+      <DependentUpon>FilesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -128,6 +136,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Templates\FileList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FilesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

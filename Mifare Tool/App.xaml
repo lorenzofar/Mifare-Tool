@@ -4,10 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:viewModels="using:Mifare_Tool.Viewmodels"
     xmlns:common="using:Template10.Common"
+    xmlns:converters="using:Mifare_Tool.Converters"
     xmlns:local="using:Mifare_Tool">
 
     <common:BootStrapper.Resources>
         <viewModels:ViewModelLocator x:Key="ViewModelLocator"/>
+        <converters:FileDateConverter x:Key="FileDateConverter"/>
     </common:BootStrapper.Resources>
 
 </common:BootStrapper>

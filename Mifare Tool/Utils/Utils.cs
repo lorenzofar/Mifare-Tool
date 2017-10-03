@@ -1,4 +1,5 @@
 ﻿using Windows.ApplicationModel.Resources;
+using Windows.Globalization.DateTimeFormatting;
 
 namespace Mifare_Tool.Utils
 {
@@ -14,5 +15,7 @@ namespace Mifare_Tool.Utils
                 return _rLoader;
             }
         }
+
+        public static DateTimeFormatter dateFormatter = new DateTimeFormatter("shortdate");
     }
 }
