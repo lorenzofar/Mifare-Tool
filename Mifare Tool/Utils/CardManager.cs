@@ -1,5 +1,7 @@
-﻿using MiFare;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MiFare;
 using MiFare.Classic;
+using Mifare_Tool.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -50,8 +52,7 @@ namespace Mifare_Tool.Utils
 
         private static void RaiseStatusUpdate(bool status)
         {
-            var main_vm = Viewmodels.ViewModelLocator.main;
-            main_vm.UpdateStatus.Execute(status);
+            Messenger.Default.Send<CardEvent>(new CardEvent { isCardPresent = status });
         }
         #endregion
 
