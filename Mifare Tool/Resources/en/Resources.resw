@@ -141,4 +141,7 @@
   <data name="import_success_title" xml:space="preserve">
     <value>Keys import succesful</value>
   </data>
+  <data name="sector_title" xml:space="preserve">
+    <value>Sector {0}</value>
+  </data>
 </root>

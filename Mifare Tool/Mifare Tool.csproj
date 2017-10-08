@@ -96,12 +96,19 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\FileDateConverter.cs" />
+    <Compile Include="Converters\SectorContentConverter.cs" />
+    <Compile Include="Converters\SectorTitleConverter.cs" />
     <Compile Include="Models\CardEvent.cs" />
+    <Compile Include="Models\Sector.cs" />
     <Compile Include="Templates\FileList.xaml.cs">
       <DependentUpon>FileList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Templates\SectorsList.xaml.cs">
+      <DependentUpon>SectorsList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\CardManager.cs" />
     <Compile Include="Viewmodels\FilesViewModel.cs" />
+    <Compile Include="Viewmodels\ReadingViewModel.cs" />
     <Compile Include="Views\FilesPage.xaml.cs">
       <DependentUpon>FilesPage.xaml</DependentUpon>
     </Compile>
@@ -114,6 +121,9 @@
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="Viewmodels\MainViewModel.cs" />
     <Compile Include="Viewmodels\ViewModelLocator.cs" />
+    <Compile Include="Views\ReadingPage.xaml.cs">
+      <DependentUpon>ReadingPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -141,6 +151,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Templates\SectorsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FilesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +162,10 @@
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReadingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

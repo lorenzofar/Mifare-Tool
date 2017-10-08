@@ -9,7 +9,14 @@
 
     <common:BootStrapper.Resources>
         <viewModels:ViewModelLocator x:Key="ViewModelLocator"/>
+        
         <converters:FileDateConverter x:Key="FileDateConverter"/>
+        <converters:SectorTitleConverter x:Key="SectorTitleConverter"/>
+        <converters:SectorContentConverter x:Key="SectorContentConverter"/>
+
+        <SolidColorBrush x:Key="KeyBrush" Color="#498205"/>
+        <SolidColorBrush x:Key="AccessCondsBrush" Color="#F7630C"/>
+        
     </common:BootStrapper.Resources>
 
 </common:BootStrapper>

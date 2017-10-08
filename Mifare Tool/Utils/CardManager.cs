@@ -19,7 +19,8 @@ namespace Mifare_Tool.Utils
         private static SmartCardReader reader = null;
         private static MiFareCard card = null;
 
-        public static List<SectorKeySet> keys = null;
+        private static List<SectorKeySet> _keys = new List<SectorKeySet>();
+        public List<SectorKeySet> keys { get { return _keys; } }
 
         public static async Task<bool> Initialize()
         {
@@ -42,11 +43,13 @@ namespace Mifare_Tool.Utils
         #region CARD HANDLERS
         private static void Reader_CardRemoved(SmartCardReader sender, CardRemovedEventArgs args)
         {
+            card = null;
             RaiseStatusUpdate(false);
         }
 
         private static void Reader_CardAdded(SmartCardReader sender, CardAddedEventArgs args)
         {
+            card = args.SmartCard.CreateMiFareCard();
             RaiseStatusUpdate(true);
         }
 
@@ -56,23 +59,44 @@ namespace Mifare_Tool.Utils
         }
         #endregion
 
-        public static async Task<string> ReadSector(int sector)
+        public static async Task<IReadOnlyList<Models.Sector>> ReadCard()
+        {
+            int i = 0;
+            List<Models.Sector> sectors = new List<Models.Sector>();
+            while (i++ < SECTORS_COUNT)
+            {
+                List<byte[]> blocks = await ReadSector(i);
+                Models.Sector newSector = new Models.Sector()
+                {
+                    index = i,
+                    keyA = _keys[i].Key,
+                    keyB = _keys[i + SECTORS_COUNT].Key,
+                    blocks = blocks
+                };
+                sectors.Add(newSector);
+            }
+            return sectors;
+        }
+
+        private static async Task<List<byte[]>> ReadSector(int sector)
         {
             try
             {
                 if (card == null) throw new Exception();
-                var data = await card.GetData(sector, 0, 48);
-                string hexString = "";
-                for (int i = 0; i < data.Length; i++)
-                    hexString += data[i].ToString("X2");
-                return hexString;
+                List<byte[]> blocks = new List<byte[]>();
+                var _sector = card.GetSector(sector);
+                for (int i = 0; i < _sector.NumDataBlocks; i++)
+                {
+                    var block = await _sector.GetData(i);
+                    blocks.Add(block);
+                }
+                return blocks;
             }
             catch
             {
-                return string.Empty;
+                return null;
             }
         }
-
 
         public static async Task GetKeysFromFile(string path)
         {
@@ -90,7 +114,7 @@ namespace Mifare_Tool.Utils
                 using (var streamReader = new StreamReader(classicStream))
                 {
                     int sector = 0;
-                    keys.Clear();
+                    _keys.Clear();
                     while (streamReader.Peek() >= 0)
                     {
                         var new_key = new SectorKeySet
@@ -99,7 +123,7 @@ namespace Mifare_Tool.Utils
                             Key = streamReader.ReadLine().StringToByteArray(),
                             KeyType = sector < SECTORS_COUNT ? KeyType.KeyA : KeyType.KeyB
                         };
-                        keys.Add(new_key);
+                        _keys.Add(new_key);
                         sector++;
                     }
                 }
@@ -114,8 +138,8 @@ namespace Mifare_Tool.Utils
 
         private static void SetKeys()
         {
-            if (keys != null)
-                foreach (var key in keys) card.AddOrUpdateSectorKeySet(key);
+            if (_keys != null)
+                foreach (var key in _keys) card.AddOrUpdateSectorKeySet(key);
             else throw new Exception("Empty keys list");
         }
     }

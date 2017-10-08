@@ -29,5 +29,16 @@ namespace Mifare_Tool.Viewmodels
                 return _files;
             }
         }
+
+        private static ReadingViewModel _reading;
+        public static ReadingViewModel reading
+        {
+            get
+            {
+                if (_reading == null)
+                    _reading = new ReadingViewModel();
+                return _reading;
+            }
+        }
     }
 }
