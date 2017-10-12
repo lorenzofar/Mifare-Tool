@@ -156,4 +156,16 @@
   <data name="save_bar.Label" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="dumps_tile.Label" xml:space="preserve">
+    <value>Dumps</value>
+  </data>
+  <data name="keys_tile.Label" xml:space="preserve">
+    <value>Keys</value>
+  </data>
+  <data name="read_tile.Label" xml:space="preserve">
+    <value>Read card</value>
+  </data>
+  <data name="write_tile.Label" xml:space="preserve">
+    <value>Write card</value>
+  </data>
 </root>

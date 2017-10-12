@@ -8,15 +8,28 @@
     xmlns:local="using:Mifare_Tool">
 
     <common:BootStrapper.Resources>
-        <viewModels:ViewModelLocator x:Key="ViewModelLocator"/>
-        
-        <converters:FileDateConverter x:Key="FileDateConverter"/>
-        <converters:SectorTitleConverter x:Key="SectorTitleConverter"/>
-        <converters:SectorContentConverter x:Key="SectorContentConverter"/>
+        <ResourceDictionary>
+            <viewModels:ViewModelLocator x:Key="ViewModelLocator"/>
 
-        <SolidColorBrush x:Key="KeyBrush" Color="#498205"/>
-        <SolidColorBrush x:Key="AccessCondsBrush" Color="#F7630C"/>
-        
+            <converters:FileDateConverter x:Key="FileDateConverter"/>
+            <converters:SectorTitleConverter x:Key="SectorTitleConverter"/>
+            <converters:SectorContentConverter x:Key="SectorContentConverter"/>
+            <converters:ListPlaceholderConverter x:Key="ListPlaceholderConverter"/>
+            <converters:NullBoolConverter x:Key="NullBoolConverter"/>
+
+            <SolidColorBrush x:Key="KeyBrush" Color="#498205"/>
+            <SolidColorBrush x:Key="AccessCondsBrush" Color="#F7630C"/>
+
+            <Style x:Key="ListPlaceholder" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#888888"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Templates/Controls.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </common:BootStrapper.Resources>
 
 </common:BootStrapper>
