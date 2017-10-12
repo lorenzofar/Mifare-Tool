@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Controls;
 namespace Mifare_Tool.Templates
 {
     [TemplatePart(Name = ROOT_PART, Type = typeof(Border))]
-    [TemplatePart(Name = HOST_PART, Type =typeof(Grid))]
+    [TemplatePart(Name = HOST_PART, Type = typeof(Grid))]
     public sealed class LinkTile : Button
     {
         private const string ROOT_PART = "Root";
@@ -25,11 +25,7 @@ namespace Mifare_Tool.Templates
 
             root.SizeChanged += (s, e) =>
             {
-                System.Diagnostics.Debug.WriteLine($"{root.ActualWidth} - {root.ActualHeight}");
-                if (root.ActualWidth > root.ActualHeight)
-                    contentHost.Width = contentHost.Height = root.ActualHeight;
-                else if (root.ActualWidth < root.ActualHeight)
-                    contentHost.Width = contentHost.Height = root.ActualWidth;
+                contentHost.Width = contentHost.Height = root.Height = root.ActualWidth;
             };
         }
 

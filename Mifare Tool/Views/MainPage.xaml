@@ -15,8 +15,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="{Binding ActualWidth, ElementName=column, UpdateSourceTrigger=PropertyChanged}"/>
-            <RowDefinition Height="{Binding ActualWidth, ElementName=column, UpdateSourceTrigger=PropertyChanged}"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <templates:LinkTile x:Uid="read_tile" Glyph="&#xE294;" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Command="{Binding OpenRead}"/>
