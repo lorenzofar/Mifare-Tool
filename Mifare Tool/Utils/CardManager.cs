@@ -63,7 +63,7 @@ namespace Mifare_Tool.Utils
         {
             int i = 0;
             List<Models.Sector> sectors = new List<Models.Sector>();
-            while (i++ < SECTORS_COUNT)
+            while (i < SECTORS_COUNT)
             {
                 List<byte[]> blocks = await ReadSector(i);
                 Models.Sector newSector = new Models.Sector()
@@ -74,6 +74,7 @@ namespace Mifare_Tool.Utils
                     blocks = blocks
                 };
                 sectors.Add(newSector);
+                i++;
             }
             return sectors;
         }
