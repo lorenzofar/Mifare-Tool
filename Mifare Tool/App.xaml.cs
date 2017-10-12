@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Template10.Common;
 using Windows.ApplicationModel.Activation;
-using Windows.UI.Xaml;
+using Windows.Phone.UI.Input;
 
 namespace Mifare_Tool
 {
@@ -11,6 +11,16 @@ namespace Mifare_Tool
         public App()
         {
             this.InitializeComponent();
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+                e.Handled = true;
+            }
         }
 
         public override Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
@@ -21,7 +31,7 @@ namespace Mifare_Tool
 
         public override Task OnInitializeAsync(IActivatedEventArgs args)
         {
-            return Task.CompletedTask; 
+            return Task.CompletedTask;
         }
     }
 }
