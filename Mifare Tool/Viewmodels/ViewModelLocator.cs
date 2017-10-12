@@ -19,14 +19,25 @@ namespace Mifare_Tool.Viewmodels
             }
         }
 
-        private static FilesViewModel _files;
-        public static FilesViewModel files
+        private static KeysViewModel _keys;
+        public static KeysViewModel keys
         {
             get
             {
-                if (_files == null)
-                    _files = new FilesViewModel();
-                return _files;
+                if (_keys == null)
+                    _keys = new KeysViewModel();
+                return _keys;
+            }
+        }
+
+        private static DumpsViewModel _dumps;
+        public static DumpsViewModel dumps
+        {
+            get
+            {
+                if (_dumps == null)
+                    _dumps = new DumpsViewModel();
+                return _dumps;
             }
         }
 
@@ -38,6 +49,17 @@ namespace Mifare_Tool.Viewmodels
                 if (_reading == null)
                     _reading = new ReadingViewModel();
                 return _reading;
+            }
+        }
+
+        private static WritingViewModel _writing;
+        public static WritingViewModel writing
+        {
+            get
+            {
+                if (_writing == null)
+                    _writing = new WritingViewModel();
+                return _writing;
             }
         }
     }

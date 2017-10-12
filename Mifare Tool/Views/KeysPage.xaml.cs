@@ -20,9 +20,9 @@ namespace Mifare_Tool.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class FilesPage : Page
+    public sealed partial class KeysPage : Page
     {
-        public FilesPage()
+        public KeysPage()
         {
             this.InitializeComponent();
         }

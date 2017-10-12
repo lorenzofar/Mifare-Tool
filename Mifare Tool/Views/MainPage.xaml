@@ -5,9 +5,23 @@
     xmlns:local="using:Mifare_Tool.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:templates="using:Mifare_Tool.Templates"
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=main}"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="column"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{Binding ActualWidth, ElementName=column, UpdateSourceTrigger=PropertyChanged}"/>
+            <RowDefinition Height="{Binding ActualWidth, ElementName=column, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid.RowDefinitions>
+
+        <templates:LinkTile x:Uid="read_tile" Glyph="&#xE294;" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Command="{Binding OpenRead}"/>
+        <templates:LinkTile x:Uid="write_tile" Glyph="&#xE105;" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Grid.Column="1" Command="{Binding OpenWrite}"/>
+        <templates:LinkTile x:Uid="dumps_tile" Glyph="&#xE1D3;" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Grid.Row="1" Command="{Binding OpenDumps}"/>
+        <templates:LinkTile x:Uid="keys_tile" Glyph="&#xE192;" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Grid.Column="1" Grid.Row="1" Command="{Binding OpenKeys}"/>
     </Grid>
 </Page>

@@ -110,10 +110,15 @@
       <DependentUpon>SectorsList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\CardManager.cs" />
-    <Compile Include="Viewmodels\FilesViewModel.cs" />
+    <Compile Include="Viewmodels\DumpsViewModel.cs" />
+    <Compile Include="Viewmodels\KeysViewModel.cs" />
     <Compile Include="Viewmodels\ReadingViewModel.cs" />
-    <Compile Include="Views\FilesPage.xaml.cs">
-      <DependentUpon>FilesPage.xaml</DependentUpon>
+    <Compile Include="Viewmodels\WritingViewModel.cs" />
+    <Compile Include="Views\DumpsPage.xaml.cs">
+      <DependentUpon>DumpsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KeysPage.xaml.cs">
+      <DependentUpon>KeysPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -126,6 +131,9 @@
     <Compile Include="Viewmodels\ViewModelLocator.cs" />
     <Compile Include="Views\ReadingPage.xaml.cs">
       <DependentUpon>ReadingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WritingPage.xaml.cs">
+      <DependentUpon>WritingPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -163,7 +171,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FilesPage.xaml">
+    <Page Include="Views\DumpsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KeysPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,6 +184,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ReadingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WritingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,7 +7,7 @@ namespace Mifare_Tool.Templates
 {
     [TemplatePart(Name = ROOT_PART, Type = typeof(Border))]
     [TemplatePart(Name = HOST_PART, Type =typeof(Grid))]
-    public sealed class LinkTile : Control
+    public sealed class LinkTile : Button
     {
         private const string ROOT_PART = "Root";
         private const string HOST_PART = "ContentHost";
