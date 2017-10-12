@@ -96,6 +96,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\FileDateConverter.cs" />
+    <Compile Include="Converters\ListPlaceholderConverter.cs" />
+    <Compile Include="Converters\NullBoolConverter.cs" />
     <Compile Include="Converters\SectorContentConverter.cs" />
     <Compile Include="Converters\SectorTitleConverter.cs" />
     <Compile Include="Models\CardEvent.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Templates\FileList.xaml.cs">
       <DependentUpon>FileList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Templates\LinkTile.cs" />
     <Compile Include="Templates\SectorsList.xaml.cs">
       <DependentUpon>SectorsList.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Templates\Controls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="Templates\FileList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

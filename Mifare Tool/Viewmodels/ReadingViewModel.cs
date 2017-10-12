@@ -2,11 +2,7 @@
 using GalaSoft.MvvmLight.Messaging;
 using Mifare_Tool.Models;
 using Mifare_Tool.Utils;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Template10.Mvvm;
 
 namespace Mifare_Tool.Viewmodels
@@ -18,6 +14,7 @@ namespace Mifare_Tool.Viewmodels
             Messenger.Default.Register<CardEvent>(this, message =>
             {
                 cardStatus = message.isCardPresent;
+                Read.RaiseCanExecuteChanged();
             });
         }
 
@@ -28,7 +25,7 @@ namespace Mifare_Tool.Viewmodels
             set { Set(ref _cardStatus, value); }
         }
 
-        private IReadOnlyList<Sector> _sectors;
+        private IReadOnlyList<Sector> _sectors = null;
         public IReadOnlyList<Sector> sectors
         {
             get { return _sectors; }
@@ -44,7 +41,7 @@ namespace Mifare_Tool.Viewmodels
                     _Read = new RelayCommand(async() =>
                     {
                         sectors = await CardManager.ReadCard();
-                    });
+                    }, () => cardStatus);
                 return _Read;
             }
         }

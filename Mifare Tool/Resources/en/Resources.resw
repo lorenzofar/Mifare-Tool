@@ -144,4 +144,16 @@
   <data name="sector_title" xml:space="preserve">
     <value>Sector {0}</value>
   </data>
+  <data name="reading_placeholder.Text" xml:space="preserve">
+    <value>Tap the scan button to read a card</value>
+  </data>
+  <data name="readPage_header.Text" xml:space="preserve">
+    <value>READ CARD</value>
+  </data>
+  <data name="read_bar.Label" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="save_bar.Label" xml:space="preserve">
+    <value>Save</value>
+  </data>
 </root>

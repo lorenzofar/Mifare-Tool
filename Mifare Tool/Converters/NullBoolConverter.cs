@@ -3,12 +3,13 @@ using Windows.UI.Xaml.Data;
 
 namespace Mifare_Tool.Converters
 {
-    public class SectorTitleConverter : IValueConverter
+    public class NullBoolConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (value == null) return "";
-            return String.Format(Utils.Utils.rLoader.GetString("sector_title"), (int)value);
+            var res = value != null;
+            if (parameter != null) res = !res;
+            return res;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

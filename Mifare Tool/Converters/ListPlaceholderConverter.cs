@@ -1,14 +1,15 @@
 ﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
 namespace Mifare_Tool.Converters
 {
-    public class SectorTitleConverter : IValueConverter
+    public class ListPlaceholderConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (value == null) return "";
-            return String.Format(Utils.Utils.rLoader.GetString("sector_title"), (int)value);
+            if (value == null) return Visibility.Visible;
+            return (int)value > 0 ? Visibility.Collapsed : Visibility.Visible; 
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

@@ -12,22 +12,30 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView ItemsSource="{Binding sectors, UpdateSourceTrigger=PropertyChanged}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <templates:SectorsList/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                </Style>
-            </ListView.ItemContainerStyle>
-        </ListView>
-        <Button Grid.Row="1" Content="READ" HorizontalAlignment="Stretch" Command="{Binding Read}"/>
-        <TextBlock Visibility="Collapsed" x:Uid="reading_placeholder"></TextBlock>
+        <controls:PageHeader x:Uid="readPage_header"/>
+        <Grid Grid.Row="1">
+            <ListView ItemsSource="{Binding sectors, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <templates:SectorsList/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+
+            <TextBlock Visibility="{Binding sectors.Count, Converter={StaticResource ListPlaceholderConverter}}" x:Uid="reading_placeholder" Style="{StaticResource ListPlaceholder}"/>
+        </Grid>
+        <CommandBar Grid.Row="2">
+            <AppBarButton x:Uid="read_bar" Icon="Scan" Command="{Binding Read}" />
+            <AppBarButton x:Uid="save_bar" Icon="Save" IsEnabled="{Binding sectors, Converter={StaticResource NullBoolConverter}}"/>
+        </CommandBar>
     </Grid>
 </Page>
