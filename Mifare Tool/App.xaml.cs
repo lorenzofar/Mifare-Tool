@@ -11,7 +11,8 @@ namespace Mifare_Tool
         public App()
         {
             this.InitializeComponent();
-            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
+                HardwareButtons.BackPressed += HardwareButtons_BackPressed;
         }
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
