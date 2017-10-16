@@ -16,7 +16,16 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <controls:PageHeader x:Uid="readPage_header"/>
+        <controls:PageHeader x:Uid="readPage_header">
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton x:Uid="cardStatus_bar">
+                    <AppBarButton.Icon>
+                        <FontIcon Foreground="{Binding cardStatus, Converter={StaticResource StatusBrushConverter}}" Glyph="&#xE91F;"/>
+                    </AppBarButton.Icon>
+
+                </AppBarButton>
+            </controls:PageHeader.PrimaryCommands>
+        </controls:PageHeader>
         <Grid Grid.Row="1">
             <ListView ItemsSource="{Binding sectors, UpdateSourceTrigger=PropertyChanged}">
                 <ListView.ItemTemplate>

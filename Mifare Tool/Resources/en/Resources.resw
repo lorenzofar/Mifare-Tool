@@ -168,4 +168,7 @@
   <data name="write_tile.Label" xml:space="preserve">
     <value>Write card</value>
   </data>
+  <data name="cardStatus_bar.Label" xml:space="preserve">
+    <value>Card status</value>
+  </data>
 </root>
