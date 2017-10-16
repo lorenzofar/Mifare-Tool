@@ -16,7 +16,7 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <controls:PageHeader x:Uid="readPage_header">
+        <controls:PageHeader x:Uid="readPage_header" Style="{StaticResource BoldHeader}">
             <controls:PageHeader.PrimaryCommands>
                 <AppBarButton x:Uid="cardStatus_bar">
                     <AppBarButton.Icon>

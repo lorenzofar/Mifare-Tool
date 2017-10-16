@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:viewModels="using:Mifare_Tool.Viewmodels"
     xmlns:common="using:Template10.Common"
+    xmlns:controls="using:Template10.Controls"
     xmlns:converters="using:Mifare_Tool.Converters"
     xmlns:local="using:Mifare_Tool">
 
@@ -16,14 +17,21 @@
             <converters:SectorContentConverter x:Key="SectorContentConverter"/>
             <converters:ListPlaceholderConverter x:Key="ListPlaceholderConverter"/>
             <converters:NullBoolConverter x:Key="NullBoolConverter"/>
+            <converters:StatusBrushConverter x:Key="StatusBrushConverter"/>
 
             <SolidColorBrush x:Key="KeyBrush" Color="#498205"/>
             <SolidColorBrush x:Key="AccessCondsBrush" Color="#F7630C"/>
+            <SolidColorBrush x:Key="GreenBrush" Color="#4CD964"/>
+            <SolidColorBrush x:Key="RedBrush" Color="#FF3B30"/>
+
 
             <Style x:Key="ListPlaceholder" TargetType="TextBlock">
                 <Setter Property="Foreground" Value="#888888"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="BoldHeader" TargetType="controls:PageHeader">
+                <Setter Property="FontWeight" Value="Bold"/>
             </Style>
 
             <ResourceDictionary.MergedDictionaries>
