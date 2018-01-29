@@ -171,4 +171,7 @@
   <data name="cardStatus_bar.Label" xml:space="preserve">
     <value>Card status</value>
   </data>
+  <data name="keyStatus_bar.Label" xml:space="preserve">
+    <value>Key status</value>
+  </data>
 </root>

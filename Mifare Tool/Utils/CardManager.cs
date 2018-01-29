@@ -22,6 +22,15 @@ namespace Mifare_Tool.Utils
         private static List<SectorKeySet> _keys = new List<SectorKeySet>();
         public List<SectorKeySet> keys { get { return _keys; } }
 
+        public CardManager()
+        {
+            Messenger.Default.Register<KeyEvent>(this, message =>
+            {
+                if (message.isKeyPresent) GetKeysFromFile(App.defaultKeyPath);
+                else _keys.Clear(); // If a keyset is not set (e.g. file deleted), clear the list
+            });
+        }
+
         public static async Task<bool> Initialize()
         {
             if (reader == null)
@@ -115,7 +124,6 @@ namespace Mifare_Tool.Utils
                 using (var streamReader = new StreamReader(classicStream))
                 {
                     int sector = 0;
-                    _keys.Clear();
                     while (streamReader.Peek() >= 0)
                     {
                         var new_key = new SectorKeySet

@@ -1,4 +1,6 @@
-﻿using Mifare_Tool.Views;
+﻿using GalaSoft.MvvmLight.Messaging;
+using Mifare_Tool.Models;
+using Mifare_Tool.Views;
 using System.Threading.Tasks;
 using Template10.Common;
 using Windows.ApplicationModel.Activation;
@@ -8,6 +10,23 @@ namespace Mifare_Tool
 {
     sealed partial class App : BootStrapper
     {
+        private static string _defaultKeyPath;
+        public static string defaultKeyPath
+        {
+            get
+            {
+                return _defaultKeyPath;
+            }
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    _defaultKeyPath = value;
+                    Messenger.Default.Send<KeyEvent>(new KeyEvent { isKeyPresent = true });
+                }
+            }
+        }
+
         public App()
         {
             this.InitializeComponent();

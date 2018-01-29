@@ -22,7 +22,11 @@
                     <AppBarButton.Icon>
                         <FontIcon Foreground="{Binding cardStatus, Converter={StaticResource StatusBrushConverter}}" Glyph="&#xE91F;"/>
                     </AppBarButton.Icon>
-
+                </AppBarButton>
+                <AppBarButton x:Uid="keyStatus_bar">
+                    <AppBarButton.Icon>
+                        <FontIcon Foreground="{Binding keyStatus, Converter={StaticResource StatusBrushConverter}}" Glyph="&#xE192;"></FontIcon>
+                    </AppBarButton.Icon>
                 </AppBarButton>
             </controls:PageHeader.PrimaryCommands>
         </controls:PageHeader>

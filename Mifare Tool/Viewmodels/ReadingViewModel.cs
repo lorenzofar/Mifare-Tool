@@ -16,13 +16,27 @@ namespace Mifare_Tool.Viewmodels
                 cardStatus = message.isCardPresent;
                 Read.RaiseCanExecuteChanged();
             });
+            Messenger.Default.Register<KeyEvent>(this, message =>
+            {
+                keyStatus = message.isKeyPresent;
+                Read.RaiseCanExecuteChanged();
+            });
         }
+
+        //Manage the setting of a key set
 
         private bool _cardStatus;
         public bool cardStatus
         {
             get { return _cardStatus; }
             set { Set(ref _cardStatus, value); }
+        }
+
+        private bool _keyStatus;
+        public bool keyStatus
+        {
+            get { return _keyStatus; }
+            set { Set(ref _keyStatus, value); }
         }
 
         private IReadOnlyList<Sector> _sectors = null;
@@ -38,10 +52,10 @@ namespace Mifare_Tool.Viewmodels
             get
             {
                 if (_Read == null)
-                    _Read = new RelayCommand(async() =>
+                    _Read = new RelayCommand(async () =>
                     {
                         sectors = await CardManager.ReadCard();
-                    }, () => cardStatus);
+                    }, () => cardStatus && !string.IsNullOrWhiteSpace(App.defaultKeyPath));
                 return _Read;
             }
         }
