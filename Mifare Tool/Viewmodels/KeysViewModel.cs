@@ -25,9 +25,9 @@ namespace Mifare_Tool.Viewmodels
             get
             {
                 if (_ImportFile == null)
-                    _ImportFile = new RelayCommand(() =>
+                    _ImportFile = new RelayCommand(async () =>
                     {
-                        FileManager.ImportFile();
+                        await FileManager.ImportFile();
                         RefreshFiles();
                     });
                 return _ImportFile;
@@ -54,7 +54,7 @@ namespace Mifare_Tool.Viewmodels
             get
             {
                 if (_Delete == null)
-                    _Delete = new RelayCommand<KeyFile>(async(file) =>
+                    _Delete = new RelayCommand<KeyFile>(async (file) =>
                     {
                         await FileManager.DeleteFile(file.file.Path);
                         if (file.isDefault) App.defaultKeyPath = null;

@@ -8,7 +8,7 @@ namespace Mifare_Tool.Utils
 {
     class FileManager
     {
-        public static async void ImportFile()
+        public static async Task ImportFile()
         {
             //Get files from database
             FileOpenPicker file_picker = new FileOpenPicker();
