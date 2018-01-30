@@ -5,6 +5,9 @@
     xmlns:local="using:Mifare_Tool.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:behaviors="using:Template10.Behaviors"
     xmlns:controls="using:Template10.Controls"
     xmlns:templates="using:Mifare_Tool.Templates"
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=keys}"
@@ -24,6 +27,19 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid x:Name="filesGrid">
+                            <FlyoutBase.AttachedFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem x:Uid="deleteBtn" Text="Delete" Click="deleteBtn_Click"/>
+                                    <MenuFlyoutItem x:Uid="setDefaultBtn" Text="Set default" Click="setDefaultBtn_Click"/>
+                                </MenuFlyout>
+                            </FlyoutBase.AttachedFlyout>
+
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="RightTapped">
+                                    <behaviors:OpenFlyoutAction/>
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+
                             <templates:FileList/>
                         </Grid>
                     </DataTemplate>
@@ -38,8 +54,9 @@
 
         <CommandBar Grid.Row="2">
             <AppBarButton x:Uid="addFile_bar" Icon="Add" Command="{Binding ImportFile}"/>
+            <AppBarButton x:Uid="refresh_bar" Icon="Refresh" Command="{Binding Refresh}"/>
         </CommandBar>
 
     </Grid>
-    
+
 </Page>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mifare_Tool.Models;
+using Mifare_Tool.Viewmodels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,5 +28,30 @@ namespace Mifare_Tool.Views
         {
             this.InitializeComponent();
         }
+
+        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var element = (FrameworkElement)sender;
+            KeyFile file = (KeyFile)element.DataContext;
+
+            if (file != null)
+            {
+                var vm = DataContext as KeysViewModel;
+                vm?.Delete.Execute(file);
+            }
+        }
+
+        private void setDefaultBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var element = (FrameworkElement)sender;
+            KeyFile file = (KeyFile)element.DataContext;
+
+            if (file != null)
+            {
+                var vm = DataContext as KeysViewModel;
+                vm?.SetDefault.Execute(file);
+            }
+        }
+        
     }
 }

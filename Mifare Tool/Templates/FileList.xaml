@@ -13,13 +13,15 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <FontIcon Glyph="&#xE82D;" VerticalAlignment="Center"/>
         <StackPanel Grid.Column="1" Margin="12,0" VerticalAlignment="Center">
-            <TextBlock Text="{Binding Name}" Style="{ThemeResource BaseTextBlockStyle}"/>
-            <TextBlock Text="{Binding DateCreated, Converter={StaticResource FileDateConverter}}" Foreground="#999999" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            <TextBlock Text="{Binding file.Name}" Style="{ThemeResource BaseTextBlockStyle}"/>
+            <TextBlock Text="{Binding file.DateCreated, Converter={StaticResource FileDateConverter}}" Foreground="#999999" Style="{ThemeResource CaptionTextBlockStyle}"/>
         </StackPanel>
-        
+        <FontIcon Glyph="&#xE0B4;" Visibility="{Binding isDefault, Converter={StaticResource BoolVisibilityConverter}}" Grid.Column="2" VerticalAlignment="Center" Foreground="{StaticResource AmberBrush}"/>
+
     </Grid>
 </UserControl>

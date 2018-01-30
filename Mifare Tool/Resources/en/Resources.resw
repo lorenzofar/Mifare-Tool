@@ -174,4 +174,7 @@
   <data name="keyStatus_bar.Label" xml:space="preserve">
     <value>Key status</value>
   </data>
+  <data name="refresh_bar.Label" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
 </root>

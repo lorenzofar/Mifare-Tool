@@ -94,6 +94,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BoolVisibilityConverter.cs" />
     <Compile Include="Converters\FileDateConverter.cs" />
     <Compile Include="Converters\ListPlaceholderConverter.cs" />
     <Compile Include="Converters\NullBoolConverter.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Converters\SectorTitleConverter.cs" />
     <Compile Include="Converters\StatusBrushConverter.cs" />
     <Compile Include="Models\CardEvent.cs" />
+    <Compile Include="Models\KeyFile.cs" />
     <Compile Include="Models\KeyEvent.cs" />
     <Compile Include="Models\Sector.cs" />
     <Compile Include="Templates\FileList.xaml.cs">

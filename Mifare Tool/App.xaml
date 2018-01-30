@@ -17,13 +17,14 @@
             <converters:SectorContentConverter x:Key="SectorContentConverter"/>
             <converters:ListPlaceholderConverter x:Key="ListPlaceholderConverter"/>
             <converters:NullBoolConverter x:Key="NullBoolConverter"/>
+            <converters:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
             <converters:StatusBrushConverter x:Key="StatusBrushConverter"/>
 
             <SolidColorBrush x:Key="KeyBrush" Color="#498205"/>
             <SolidColorBrush x:Key="AccessCondsBrush" Color="#F7630C"/>
             <SolidColorBrush x:Key="GreenBrush" Color="#4CD964"/>
             <SolidColorBrush x:Key="RedBrush" Color="#FF3B30"/>
-
+            <SolidColorBrush x:Key="AmberBrush" Color="#FFBF00"/>
 
             <Style x:Key="ListPlaceholder" TargetType="TextBlock">
                 <Setter Property="Foreground" Value="#888888"/>

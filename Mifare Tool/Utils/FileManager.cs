@@ -29,14 +29,11 @@ namespace Mifare_Tool.Utils
             }
         }
 
-        public static async void DeleteFile(string path)
+        public static async Task DeleteFile(string path)
         {
             var file = await StorageFile.GetFileFromPathAsync(path);
             if (file != null)
-            {
                 await file.DeleteAsync();
-                App.defaultKeyPath = string.Empty;
-            }
         }
 
         public static async Task<StorageFile> GetFile(string path)

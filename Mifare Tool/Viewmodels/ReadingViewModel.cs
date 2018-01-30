@@ -2,8 +2,11 @@
 using GalaSoft.MvvmLight.Messaging;
 using Mifare_Tool.Models;
 using Mifare_Tool.Utils;
+using Mifare_Tool.Views;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Template10.Mvvm;
+using Windows.UI.Xaml.Navigation;
 
 namespace Mifare_Tool.Viewmodels
 {
@@ -58,6 +61,27 @@ namespace Mifare_Tool.Viewmodels
                     }, () => cardStatus && !string.IsNullOrWhiteSpace(App.defaultKeyPath));
                 return _Read;
             }
+        }
+
+        private RelayCommand _OpenKeysPage;
+        public RelayCommand OpenKeysPage
+        {
+            get
+            {
+                if (_OpenKeysPage == null)
+                    _OpenKeysPage = new RelayCommand(() =>
+                    {
+                        App.Current.NavigationService.Navigate(typeof(KeysPage));
+                    });
+                return _OpenKeysPage;
+            }
+        }
+
+        public override Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        {
+            keyStatus = !string.IsNullOrEmpty(App.defaultKeyPath);
+            Read.RaiseCanExecuteChanged();
+            return base.OnNavigatedToAsync(parameter, mode, state);
         }
 
 
