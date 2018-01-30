@@ -29,6 +29,24 @@ namespace Mifare_Tool.Utils
             }
         }
 
+        public static async void DeleteFile(string path)
+        {
+            var file = await StorageFile.GetFileFromPathAsync(path);
+            if (file != null)
+            {
+                await file.DeleteAsync();
+                App.defaultKeyPath = string.Empty;
+            }
+        }
+
+        public static async Task<StorageFile> GetFile(string path)
+        {
+            var keys_file = await StorageFile.GetFileFromPathAsync(path);
+            if (keys_file == null)
+                Communicator.SendPopup("file_null_title", "file_null_body");
+            return keys_file;
+        }
+
         public static async Task<IReadOnlyList<StorageFile>> ListFiles()
         {
             var folder = ApplicationData.Current.LocalFolder;

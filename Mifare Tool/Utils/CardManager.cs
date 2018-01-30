@@ -112,12 +112,8 @@ namespace Mifare_Tool.Utils
         {
             try
             {
-                var keys_file = await StorageFile.GetFileFromPathAsync(path);
-                if (keys_file == null)
-                {
-                    Communicator.SendPopup("file_null_title", "file_null_body");
-                    return;
-                }
+                var keys_file = await FileManager.GetFile(path);
+                if (keys_file == null) return;
 
                 using (var inputStream = await keys_file.OpenReadAsync())
                 using (var classicStream = inputStream.AsStreamForRead())
