@@ -23,7 +23,7 @@
         <controls:PageHeader x:Uid="filesPage_header"/>
 
         <Grid Grid.Row="1">
-            <ListView ItemsSource="{Binding files}" SelectionMode="None">
+            <ListView ItemsSource="{Binding files}" SelectionMode="None" IsItemClickEnabled="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid x:Name="filesGrid">
@@ -39,7 +39,6 @@
                                     <behaviors:OpenFlyoutAction/>
                                 </core:EventTriggerBehavior>
                             </interactivity:Interaction.Behaviors>
-
                             <templates:FileList/>
                         </Grid>
                     </DataTemplate>
@@ -49,6 +48,11 @@
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                     </Style>
                 </ListView.ItemContainerStyle>
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="ItemClick">
+                        <core:InvokeCommandAction Command="{Binding Open}" />
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
             </ListView>
         </Grid>
 

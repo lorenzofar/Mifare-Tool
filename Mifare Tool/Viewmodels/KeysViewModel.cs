@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Template10.Mvvm;
 using Windows.Storage;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 namespace Mifare_Tool.Viewmodels
@@ -45,6 +46,26 @@ namespace Mifare_Tool.Viewmodels
                         RefreshFiles();
                     });
                 return _Refresh;
+            }
+        }
+
+        private RelayCommand<object> _Open;
+        public RelayCommand<object> Open
+        {
+            get
+            {
+                if (_Open == null)
+                    _Open = new RelayCommand<object>(async(e) =>
+                    {
+                        var args = e as ItemClickEventArgs;
+                        var item = args.ClickedItem as KeyFile;
+                        if(item != null)
+                        {
+                            StorageFile file = item.file;
+                            Windows.System.Launcher.LaunchFileAsync(file);
+                        }
+                    });
+                return _Open;
             }
         }
 
