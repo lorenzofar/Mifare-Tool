@@ -177,4 +177,19 @@
   <data name="refresh_bar.Label" xml:space="preserve">
     <value>Refresh</value>
   </data>
+  <data name="dump_export_error_body" xml:space="preserve">
+    <value>An error occured while exporting the dump</value>
+  </data>
+  <data name="dump_export_error_title" xml:space="preserve">
+    <value>Error in dump export</value>
+  </data>
+  <data name="dump_export_success_body" xml:space="preserve">
+    <value>The dump has been saved succesfully</value>
+  </data>
+  <data name="dump_export_success_title" xml:space="preserve">
+    <value>Dump export succesful</value>
+  </data>
+  <data name="dump_filename" xml:space="preserve">
+    <value>New dump</value>
+  </data>
 </root>

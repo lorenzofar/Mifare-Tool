@@ -63,6 +63,21 @@ namespace Mifare_Tool.Viewmodels
             }
         }
 
+        private RelayCommand _Save;
+        public RelayCommand Save
+        {
+            get
+            {
+                if (_Save == null)
+                    _Save = new RelayCommand(() =>
+                    {
+                        string hexString = Utils.Utils.SectorsToHexString(sectors);
+                        FileManager.WriteDumpToFile(hexString);
+                    });
+                return _Save;
+            }
+        }
+
         private RelayCommand _OpenKeysPage;
         public RelayCommand OpenKeysPage
         {
